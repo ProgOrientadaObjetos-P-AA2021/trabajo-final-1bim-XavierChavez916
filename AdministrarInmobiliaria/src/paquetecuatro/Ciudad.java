@@ -5,10 +5,39 @@
  */
 package paquetecuatro;
 
+import java.io.Serializable;
+
 /**
  *
  * @author reroes
  */
-public class Ciudad {
+public class Ciudad implements Serializable{
+    
+    private String nomCiudad;
+    private String nomProvincia;
+    
+    public Ciudad(){
+    }
+    
+    public Ciudad(String ciu, String prov){
+        nomCiudad = ciu;
+        nomProvincia = prov;
+    }
+    
+    public void establecerNomciudad(String c){
+        nomCiudad = c;
+    }
+    
+    public void establecerNomProvincia(String c){
+        nomProvincia = c;
+    }
+    
+    public String obtenerNomCiudad(){
+        return nomCiudad;
+    }
+    
+    public String obtenerNomProvincia(){
+        return nomProvincia;
+    }
     
 }
