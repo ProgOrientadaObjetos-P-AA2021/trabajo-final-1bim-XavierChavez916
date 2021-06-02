@@ -126,6 +126,7 @@ public class Ejecutor {
         System.out.println("∆========================================∆");
         System.out.printf("Ingrese su identificacion\n> ");
         iden = entrada.nextLine();
+        // Se llama para verificar si ya esta ingresado la identificacion
         lecturaProp.establecerObjetoBuscado(iden);
         lecturaProp.establecerBooleanBuscado();
         if (!lecturaProp.obtenerBooleanBuscado()) {
@@ -149,6 +150,7 @@ public class Ejecutor {
             System.out.printf("Ingrese su apellido\n> ");
             apell = entrada.nextLine();
             p = new Propietario(nom, apell, iden);
+            // Se guarado los datos
             archivoProp.establecerRegistroPropietario(p);
             archivoProp.establecerSalida();
             archivoProp.cerrarArchivo();
@@ -169,7 +171,7 @@ public class Ejecutor {
         System.out.println("∆========================================∆");
         System.out.printf("Ingrese el número de casa\n> ");
         numCasa = entrada.nextLine();
-        // Se llama para comprobar si la cedula ya se encuentra guardada
+        // Se llama para comprobar si el numero de casa ya se encuentra guardada
         lecturaUbi.establecerObjetoBuscado(numCasa);
         lecturaUbi.establecerBooleanBuscado();
         if (!lecturaUbi.obtenerBooleanBuscado()) {
@@ -192,6 +194,7 @@ public class Ejecutor {
             System.out.printf("Ingrese una referencia\n> ");
             refe = entrada.nextLine();
             u = new Ubicacion(numCasa, nomBarrio, refe);
+            // Se guarado los datos
             archivoUbi.establecerRegistroUbicacion(u);
             archivoUbi.establecerSalida();
             archivoUbi.cerrarArchivo();
@@ -231,6 +234,7 @@ public class Ejecutor {
             System.out.print("Ingrese el nombre de la provinvia\n> ");
             nomProvincia = entrada.nextLine();
             c = new Ciudad(nomCiudad, nomProvincia);
+            // Se guarado los datos
             archivoCiu.establecerRegistroCiudad(c);
             archivoCiu.establecerSalida();
             archivoCiu.cerrarArchivo();
@@ -272,6 +276,7 @@ public class Ejecutor {
             System.out.printf("Ingrese el nombre de la constructora\n> ");
             nomCons = entrada.nextLine();
             cons = new Constructora(idEmpresa, nomCons);
+            // Se guarado los datos
             archivoCons.establecerRegistroConstructora(cons);
             archivoCons.establecerSalida();
             archivoCons.cerrarArchivo();
@@ -302,6 +307,7 @@ public class Ejecutor {
         Casa cs = new Casa(p, precioCuadrado, numMetCuadrado, u,
                 c, numCuartos, cons);
         cs.establecerCostFinal();
+        // Se guarado los datos
         archivoCasa.establecerRegistroCasa(cs);
         archivoCasa.establecerSalida();
         archivoCasa.cerrarArchivo();
@@ -338,6 +344,7 @@ public class Ejecutor {
         Departamento depa = new Departamento(p, precioCuadrado,
                 numMetCuadrado, valAliMens, precio, u, c, nomEdi, ubiEdi, cons);
         depa.establecerCostoFinal();
+        // Se guarado los datos
         archivoDepa.establecerRegistroDepa(depa);
         archivoDepa.establecerSalida();
         archivoDepa.cerrarArchivo();
