@@ -195,7 +195,6 @@ public class Ejecutor {
             archivoUbi.establecerRegistroUbicacion(u);
             archivoUbi.establecerSalida();
             archivoUbi.cerrarArchivo();
-            
 
         }
         return u;
@@ -235,7 +234,7 @@ public class Ejecutor {
             archivoCiu.establecerSalida();
             archivoCiu.cerrarArchivo();
         }
-        
+
         return c;
 
     }
@@ -274,7 +273,7 @@ public class Ejecutor {
             archivoCons.establecerSalida();
             archivoCons.cerrarArchivo();
         }
-        
+
         return cons;
     }
 
@@ -284,9 +283,9 @@ public class Ejecutor {
         double precioCuadrado;
         int numMetCuadrado, numCuartos;
         EscrituraArchivoCasa archivoCasa = new EscrituraArchivoCasa(nomArchivoCasa);
-        
+
         System.out.println("∆========================================∆");
-        System.out.println("øøøøøøø PROCESO PARA INGRESAR CASAS øøøøøø");    
+        System.out.println("øøøøøøø PROCESO PARA INGRESAR CASAS øøøøøø");
         System.out.println("∆========================================∆");
         Propietario p = ingresePropietario();
         System.out.print("Ingrese el precio por metro cuadrado\n> ");
@@ -304,7 +303,6 @@ public class Ejecutor {
         archivoCasa.establecerRegistroCasa(cs);
         archivoCasa.establecerSalida();
         archivoCasa.cerrarArchivo();
-        
 
     }
 
@@ -315,9 +313,6 @@ public class Ejecutor {
         int numMetCuadrado;
         String nomEdi, ubiEdi;
         EscrituraArchivoDepa archivoDepa = new EscrituraArchivoDepa(nomArchivoDepa);
-        System.out.println("∆========================================∆");
-        System.out.println("øø  PROCESO PARA INGRESAR CONSTRUCTORAS øø");
-        System.out.println("∆========================================∆");
         System.out.println("∆========================================∆");
         System.out.println("øøø PROCESO PARA INGRESAR DEPARTAMENTOS øø");
         System.out.println("∆========================================∆");
@@ -330,6 +325,7 @@ public class Ejecutor {
         valAliMens = entrada.nextDouble();
         System.out.print("Ingrese el precio\n> ");
         precio = entrada.nextDouble();
+        entrada.nextLine();
         Ubicacion u = ingreseUbicacion();
         Ciudad c = ingreseCiudad();
         System.out.print("Ingrese el nombre del edificio\n> ");
@@ -343,18 +339,10 @@ public class Ejecutor {
         archivoDepa.establecerRegistroDepa(depa);
         archivoDepa.establecerSalida();
         archivoDepa.cerrarArchivo();
-       
 
     }
 
     public static void mostrarDatos(int n) {
-
-        String nomArchivoCasa = "datos/casas.txt";
-        LecturaArchivoCasa lecturaCasa = new LecturaArchivoCasa(nomArchivoCasa);
-        lecturaCasa.establecerListaCasa();
-        String nomArchivoDepa = "datos/departamento.txt";
-        LecturaArchivoDepa lecturaDepa = new LecturaArchivoDepa(nomArchivoDepa);
-        lecturaDepa.establecerListaDepa();
         String nomArchivoCons = "datos/constructoras.txt";
         LecturaArchivoCons lecturaCons = new LecturaArchivoCons(nomArchivoCons);
         lecturaCons.establecerListaConstructora();
@@ -367,45 +355,63 @@ public class Ejecutor {
         String nomArchivoProp = "datos/propietarios.txt";
         LecturaArchivoProp lecturaProp = new LecturaArchivoProp(nomArchivoProp);
         lecturaProp.establecerListaPropietarios();
+        String nomArchivoCasa = "datos/casas.txt";
+        LecturaArchivoCasa lecturaCasa = new LecturaArchivoCasa(nomArchivoCasa);
+        lecturaCasa.establecerListaCasa();
+        String nomArchivoDepa = "datos/departamento.txt";
+        LecturaArchivoDepa lecturaDepa = new LecturaArchivoDepa(nomArchivoDepa);
+        lecturaDepa.establecerListaDepa();
         switch (n) {
             case 1:
                 if (lecturaCasa.obtenerListaCasa().isEmpty()) {
-                    System.out.println("No hay datos");
+                    System.out.println("========================");
+                    System.out.println("No hay datos que mostrar");
+                    System.out.println("========================");
                 } else {
                     System.out.println(lecturaCasa);
                 }
                 break;
             case 2:
                 if (lecturaDepa.obtenerListaDepa().isEmpty()) {
+                    System.out.println("========================");
                     System.out.println("No hay datos que mostrar");
+                    System.out.println("========================ss");
                 } else {
                     System.out.println(lecturaDepa);
                 }
                 break;
             case 3:
                 if (lecturaProp.obtenerListaPropietarios().isEmpty()) {
+                    System.out.println("========================");
                     System.out.println("No hay datos que mostrar");
+                    System.out.println("========================");
                 } else {
                     System.out.println(lecturaProp);
                 }
                 break;
             case 4:
                 if (lecturaUbi.obtenerListaUbicacion().isEmpty()) {
+                    System.out.println("========================");
                     System.out.println("No hay datos que mostrar");
+                    System.out.println("========================");
                 } else {
                     System.out.println(lecturaUbi);
                 }
                 break;
             case 5:
                 if (lecturaCiu.obtenerListaCiudad().isEmpty()) {
+                    System.out.println("========================");
                     System.out.println("No hay datos que mostrar");
+                    System.out.println("========================");
                 } else {
                     System.out.println(lecturaCiu);
                 }
                 break;
             case 6:
                 if (lecturaCons.obtenerListaConstructora().isEmpty()) {
+                    System.out.println("========================");
                     System.out.println("No hay datos que mostrar");
+                    System.out.println("========================");
                 } else {
                     System.out.println(lecturaCons);
                 }
@@ -417,18 +423,21 @@ public class Ejecutor {
                         && lecturaUbi.obtenerListaUbicacion().isEmpty()
                         && lecturaCiu.obtenerListaCiudad().isEmpty()
                         && lecturaCons.obtenerListaConstructora().isEmpty()) {
+                    System.out.println("========================");
                     System.out.println("No hay datos que mostrar");
-                } else if (!lecturaCasa.obtenerListaCasa().isEmpty()) {
+                    System.out.println("========================");
+                } else if (!lecturaCasa.obtenerListaCasa().isEmpty() 
+                        && !lecturaDepa.obtenerListaDepa().isEmpty() 
+                        && !lecturaProp.obtenerListaPropietarios().isEmpty() 
+                        && !lecturaUbi.obtenerListaUbicacion().isEmpty() 
+                        && !lecturaUbi.obtenerListaUbicacion().isEmpty() 
+                        && !lecturaCiu.obtenerListaCiudad().isEmpty() 
+                        && !lecturaCons.obtenerListaConstructora().isEmpty()) {
                     System.out.println(lecturaCasa);
-                } else if (!lecturaDepa.obtenerListaDepa().isEmpty()) {
                     System.out.println(lecturaDepa);
-                } else if (!lecturaProp.obtenerListaPropietarios().isEmpty()) {
                     System.out.println(lecturaProp);
-                } else if (!lecturaUbi.obtenerListaUbicacion().isEmpty()) {
                     System.out.println(lecturaUbi);
-                } else if (!lecturaCiu.obtenerListaCiudad().isEmpty()) {
                     System.out.println(lecturaCiu);
-                } else if (!lecturaCons.obtenerListaConstructora().isEmpty()) {
                     System.out.println(lecturaCons);
                 }
                 break;

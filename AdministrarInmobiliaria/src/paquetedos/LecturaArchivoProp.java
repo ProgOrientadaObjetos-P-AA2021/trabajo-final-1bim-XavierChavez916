@@ -110,15 +110,16 @@ public class LecturaArchivoProp {
     @Override
     public String toString() {
         String cadena = "===================================================\n"
-                + "\tLista de Propietarios\n"
+                + "\t\tLista de Propietarios\n"
                 + "===================================================\n";
         for (int i = 0; i < obtenerListaPropietarios().size(); i++) {
             Propietario p = obtenerListaPropietarios().get(i);
-            cadena = String.format("%s======================================="
-                    + "============\n"
+            cadena = String.format("%sPropietario %s\n"
+                    + "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n"
                     + "Identificacion: %s\nNombre: %s\n"
                     + "Apellido: %s\n"
-                    + "===================================================\n", cadena,
+                    + "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n", 
+                    cadena,i+1,
                     p.obtenerIdentificacion(),
                     p.obtenerNombre(),
                     p.obtenerApellido());

@@ -107,14 +107,15 @@ public class LecturaArchivoCiu {
     @Override
     public String toString() {
         String cadena = "===================================================\n"
-                + "\tLista de Ciudades\n"
+                + "\t\tLista de Ciudades\n"
                 + "===================================================\n";
         for (int i = 0; i < obtenerListaCiudad().size(); i++) {
             Ciudad p = obtenerListaCiudad().get(i);
-            cadena = String.format("%s======================================"
-                    + "=============\n"
+            cadena = String.format("%sCiudad %s\n"
+                    + "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n"
                     + "Número de la ciudad: %s\nNombre de la provincia: %s\n"
-                    + "===================================================\n", cadena,
+                    + "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n",
+                    cadena, i + 1,
                     p.obtenerNomCiudad(),
                     p.obtenerNomProvincia());
 

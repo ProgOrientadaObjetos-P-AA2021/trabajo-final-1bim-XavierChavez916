@@ -77,11 +77,12 @@ public class LecturaArchivoDepa {
     @Override
     public String toString() {
         String cadena = "===================================================\n"
-                + "\tLista de Departamentos\n"
+                + "\t\tLista de Departamentos\n"
                 + "===================================================\n";
         for (int i = 0; i < obtenerListaDepa().size(); i++) {
             Departamento p = obtenerListaDepa().get(i);
-            cadena = String.format("%sPropietario:\n"
+            cadena = String.format("%sPropietario %s\n"
+                    + "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n"
                     + "\tNombre: %s\n"
                     + "\tApellido: %s\n"
                     + "\tIdentificacion: %s\n"
@@ -93,11 +94,12 @@ public class LecturaArchivoDepa {
                     + "Ubicacion:\n\tNúmero de casa: %s\n"
                     + "\tNombre del barrio: %s\n\tReferencia: %s\n"
                     + "Ciudad:\n\tNombre de la ciudad: %s\n"
-                    + "\tNombre de la provincia\n"
+                    + "\tNombre de la provincia: %s\n"
                     + "Nombre del edificio: %s\n"
                     + "Constructora:\n\tNombre de la constructora: %s\n"
-                    + "\tId de la empresa: %s\n",
-                    cadena, p.obtenerPropietario().obtenerNombre(),
+                    + "\tId de la empresa: %s\n"
+                    + "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n",
+                    cadena, i+1, p.obtenerPropietario().obtenerNombre(),
                     p.obtenerPropietario().obtenerApellido(),
                     p.obtenerPropietario().obtenerIdentificacion(),
                     p.obtenerPrecMetCuadrado(),

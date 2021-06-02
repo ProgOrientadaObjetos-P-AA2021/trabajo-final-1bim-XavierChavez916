@@ -84,7 +84,7 @@ public class LecturaArchivoCasa {
         for (int i = 0; i < obtenerListaCasa().size(); i++) {
             Casa p = obtenerListaCasa().get(i);
             cadena = String.format("%s\nCasa %s\n"
-                    + "===================================================\n"
+                    + "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n"
                     + "Propietario: \n\tNombre del propietario: %s\n"
                     + "\tApellido del propietario: %s\n"
                     + "\tIdentificacion del propietario: %s\n"
@@ -96,7 +96,7 @@ public class LecturaArchivoCasa {
                     + "Número de cuartos: %s\n"
                     + "Constructora:\n\tNombre Constructora: %s\n"
                     + "\tId de la empresa: %s\n"
-                    + "===================================================\n", 
+                    + "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n", 
                     cadena, i + 1,
                     p.obtenerPropietario().obtenerNombre(),
                     p.obtenerPropietario().obtenerApellido(),

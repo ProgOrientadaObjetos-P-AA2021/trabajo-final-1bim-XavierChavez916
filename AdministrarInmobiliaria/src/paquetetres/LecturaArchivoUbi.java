@@ -106,16 +106,16 @@ public class LecturaArchivoUbi {
     @Override
     public String toString() {
         String cadena = "===================================================\n"
-                + "\tLista de Ubicaciones\n"
+                + "\t\tLista de Ubicaciones\n"
                 + "===================================================\n";
         for (int i = 0; i < obtenerListaUbicacion().size(); i++) {
             Ubicacion p = obtenerListaUbicacion().get(i);
-            cadena = String.format("%s======================================"
-                    + "=============\n"
+            cadena = String.format("%sUbicacion %s\n"
+                    + "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n"
                     + "Número de casa: %s\nNombre del barrio: %s\n"
                     + "Referencia: %s\n"
-                    + "===================================================\n", 
-                    cadena,
+                    + "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n", 
+                    cadena, i+1,
                     p.obtenerNumeroCasa(),
                     p.obtenerNomBarrio(),
                     p.obtenerReferencia());
