@@ -41,7 +41,7 @@ public class Ejecutor {
         int opcion, datosIngresar;
 
         while (bandera) {
-            System.out.print("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈\n"
+            System.out.printf("≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈\n"
                     + "Escoja la opcion que desea ingresar\n"
                     + "1) Digite 1 si desea ingresar una Casa\n"
                     + "2) Digite 2 si desea ingresar un Departamento\n"
@@ -55,49 +55,49 @@ public class Ejecutor {
             opcion = entrada.nextInt();
             entrada.nextLine();
             if (opcion == 1) {
-                System.out.print("Digite cuantos casas desea ingresar\n> ");
+                System.out.printf("Digite cuantos casas desea ingresar\n> ");
                 datosIngresar = entrada.nextInt();
                 entrada.nextLine();
                 for (int i = 0; i < datosIngresar; i++) {
                     ingreseCasa();
                 }
             } else if (opcion == 2) {
-                System.out.print("Digite cuantos Departamentos desea ingresar\n> ");
+                System.out.printf("Digite cuantos Departamentos desea ingresar\n> ");
                 datosIngresar = entrada.nextInt();
                 entrada.nextLine();
                 for (int i = 0; i < datosIngresar; i++) {
                     ingreseDepartamento();
                 }
             } else if (opcion == 3) {
-                System.out.print("Digite cuantos propietarios desea ingresar\n> ");
+                System.out.printf("Digite cuantos propietarios desea ingresar\n> ");
                 datosIngresar = entrada.nextInt();
                 entrada.nextLine();
                 for (int i = 0; i < datosIngresar; i++) {
                     ingresePropietario();
                 }
             } else if (opcion == 4) {
-                System.out.print("Digite cuantas ubicaciones desea ingresar\n> ");
+                System.out.printf("Digite cuantas ubicaciones desea ingresar\n> ");
                 datosIngresar = entrada.nextInt();
                 entrada.nextLine();
                 for (int i = 0; i < datosIngresar; i++) {
                     ingreseUbicacion();
                 }
             } else if (opcion == 5) {
-                System.out.print("Digite cuantas ciudades desea ingresar\n> ");
+                System.out.printf("Digite cuantas ciudades desea ingresar\n> ");
                 datosIngresar = entrada.nextInt();
                 entrada.nextLine();
                 for (int i = 0; i < datosIngresar; i++) {
                     ingreseCiudad();
                 }
             } else if (opcion == 6) {
-                System.out.print("Digite cuantas constructoras desea ingresar\n> ");
+                System.out.printf("Digite cuantas constructoras desea ingresar\n> ");
                 datosIngresar = entrada.nextInt();
                 entrada.nextLine();
                 for (int i = 0; i < datosIngresar; i++) {
                     ingreseConstructora();
                 }
             } else if (opcion == 7) {
-                System.out.print("Digite el dato que desea ver:\n"
+                System.out.printf("Digite el dato que desea ver:\n"
                         + "1) Casa\n"
                         + "2) Departamentos\n"
                         + "3) Propietarios\n"
@@ -124,7 +124,7 @@ public class Ejecutor {
         System.out.println("∆========================================∆");
         System.out.println("øøø PROCESO PARA INGRESAR PROPIETARIOS øøø");
         System.out.println("∆========================================∆");
-        System.out.print("Ingrese su identificacion\n> ");
+        System.out.printf("Ingrese su identificacion\n> ");
         iden = entrada.nextLine();
         lecturaProp.establecerObjetoBuscado(iden);
         lecturaProp.establecerBooleanBuscado();
@@ -144,9 +144,9 @@ public class Ejecutor {
             }
 
         } else if (lecturaProp.obtenerBooleanBuscado()) {
-            System.out.print("Ingrese el nombre\n> ");
+            System.out.printf("Ingrese el nombre\n> ");
             nom = entrada.nextLine();
-            System.out.print("Ingrese su apellido\n> ");
+            System.out.printf("Ingrese su apellido\n> ");
             apell = entrada.nextLine();
             p = new Propietario(nom, apell, iden);
             archivoProp.establecerRegistroPropietario(p);
@@ -167,7 +167,7 @@ public class Ejecutor {
         System.out.println("∆========================================∆");
         System.out.println("øøø PROCESO PARA INGRESAR UBICACIONES  øøø");
         System.out.println("∆========================================∆");
-        System.out.print("Ingrese el número de casa\n> ");
+        System.out.printf("Ingrese el número de casa\n> ");
         numCasa = entrada.nextLine();
         // Se llama para comprobar si la cedula ya se encuentra guardada
         lecturaUbi.establecerObjetoBuscado(numCasa);
@@ -187,9 +187,9 @@ public class Ejecutor {
                         lecturaUbi.obtenerObjetoBuscado().obtenerReferencia());
             }
         } else if (lecturaUbi.obtenerBooleanBuscado()) {
-            System.out.print("Ingrese el nombre de barrio\n> ");
+            System.out.printf("Ingrese el nombre de barrio\n> ");
             nomBarrio = entrada.nextLine();
-            System.out.print("Ingrese una referencia\n> ");
+            System.out.printf("Ingrese una referencia\n> ");
             refe = entrada.nextLine();
             u = new Ubicacion(numCasa, nomBarrio, refe);
             archivoUbi.establecerRegistroUbicacion(u);
@@ -210,7 +210,7 @@ public class Ejecutor {
         System.out.println("========================================");
         System.out.println("øøø PROCESO PARA INGRESAR CIUDADES øøøø");
         System.out.println("========================================");
-        System.out.print("Ingrese el nombre de la ciudad\n> ");
+        System.out.printf("Ingrese el nombre de la ciudad\n> ");
         nomCiudad = entrada.nextLine();
         // Se llama al metodo para comprobar si la ciudad ya se encuentra guardada
         lecturaCiu.establecerObjetoBuscado(nomCiudad);
@@ -250,7 +250,7 @@ public class Ejecutor {
         System.out.println("∆========================================∆");
         System.out.println("øø  PROCESO PARA INGRESAR CONSTRUCTORAS øø");
         System.out.println("∆========================================∆");
-        System.out.print("Ingrese el Id de la empresa\n> ");
+        System.out.printf("Ingrese el Id de la empresa\n> ");
         idEmpresa = entrada.nextLine();
         // Se llama al metodo para comprobar si la Id de la empresa 
         // ya se encuentra guardada
@@ -269,7 +269,7 @@ public class Ejecutor {
                         lecturaCons.obtenerObjetoBuscado().obtenerNomConstructora());
             }
         } else if (lecturaCons.obtenerBooleanBuscado()) {
-            System.out.print("Ingrese el nombre de la constructora\n> ");
+            System.out.printf("Ingrese el nombre de la constructora\n> ");
             nomCons = entrada.nextLine();
             cons = new Constructora(idEmpresa, nomCons);
             archivoCons.establecerRegistroConstructora(cons);
@@ -290,13 +290,13 @@ public class Ejecutor {
         System.out.println("øøøøøøø PROCESO PARA INGRESAR CASAS øøøøøø");
         System.out.println("∆========================================∆");
         Propietario p = ingresePropietario();
-        System.out.print("Ingrese el precio por metro cuadrado\n> ");
+        System.out.printf("Ingrese el precio por metro cuadrado\n> ");
         precioCuadrado = entrada.nextDouble();
-        System.out.print("Ingrese el numero de metros cuadrados\n> ");
+        System.out.printf("Ingrese el numero de metros cuadrados\n> ");
         numMetCuadrado = entrada.nextInt();
         Ubicacion u = ingreseUbicacion();
         Ciudad c = ingreseCiudad();
-        System.out.print("Ingrese el numero de cuartos\n> ");
+        System.out.printf("Ingrese el numero de cuartos\n> ");
         numCuartos = entrada.nextInt();
         Constructora cons = ingreseConstructora();
         Casa cs = new Casa(p, precioCuadrado, numMetCuadrado, u,
@@ -319,20 +319,20 @@ public class Ejecutor {
         System.out.println("øøø PROCESO PARA INGRESAR DEPARTAMENTOS øø");
         System.out.println("∆========================================∆");
         Propietario p = ingresePropietario();
-        System.out.print("Ingrese el precio por metro cuadrado\n> ");
+        System.out.printf("Ingrese el precio por metro cuadrado\n> ");
         precioCuadrado = entrada.nextDouble();
-        System.out.print("Ingrese el numero de metros cuadrados\n> ");
+        System.out.printf("Ingrese el numero de metros cuadrados\n> ");
         numMetCuadrado = entrada.nextInt();
-        System.out.print("Ingrese el valor alicuota mensual\n> ");
+        System.out.printf("Ingrese el valor alicuota mensual\n> ");
         valAliMens = entrada.nextDouble();
-        System.out.print("Ingrese el precio\n> ");
+        System.out.printf("Ingrese el precio\n> ");
         precio = entrada.nextDouble();
         entrada.nextLine();
         Ubicacion u = ingreseUbicacion();
         Ciudad c = ingreseCiudad();
-        System.out.print("Ingrese el nombre del edificio\n> ");
+        System.out.printf("Ingrese el nombre del edificio\n> ");
         nomEdi = entrada.nextLine();
-        System.out.print("Ingrese ubicacion del departamento del edificio\n> ");
+        System.out.printf("Ingrese ubicacion del departamento del edificio\n> ");
         ubiEdi = entrada.nextLine();
         Constructora cons = ingreseConstructora();
         Departamento depa = new Departamento(p, precioCuadrado,
