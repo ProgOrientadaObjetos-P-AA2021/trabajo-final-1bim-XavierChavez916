@@ -119,7 +119,6 @@ public class Ejecutor {
         String nomArchivoProp = "datos/propietarios.txt";
         Propietario p = new Propietario();
         String iden, verDatos, nom, apell;
-
         LecturaArchivoProp lecturaProp = new LecturaArchivoProp(nomArchivoProp);
         EscrituraArchivoProp archivoProp = new EscrituraArchivoProp(nomArchivoProp);
         System.out.println("∆========================================∆");
@@ -136,13 +135,14 @@ public class Ejecutor {
                     + "se encuentra registrada\n"
                     + "Digite (si) si desea ver los datos\n> ", iden);
             verDatos = entrada.nextLine();
-
             if (verDatos.toLowerCase().equals("si")) {
                 System.out.printf("Nombre : %s\n"
                         + "Apellido: %s\n",
                         lecturaProp.obtenerObjetoBuscado().obtenerNombre(),
                         lecturaProp.obtenerObjetoBuscado().obtenerApellido());
+
             }
+
         } else if (lecturaProp.obtenerBooleanBuscado()) {
             System.out.print("Ingrese el nombre\n> ");
             nom = entrada.nextLine();
@@ -152,15 +152,14 @@ public class Ejecutor {
             archivoProp.establecerRegistroPropietario(p);
             archivoProp.establecerSalida();
             archivoProp.cerrarArchivo();
-
         }
-
         return p;
     }
 
     public static Ubicacion ingreseUbicacion() {
         Scanner entrada = new Scanner(System.in);
-        String nomArchivoUbi = "datos/ubicacion.txt";
+        // Variables
+        String nomArchivoUbi = "datos/ubicaciones.txt";
         String verDatos, nomBarrio, numCasa, refe;
         Ubicacion u = new Ubicacion();
         EscrituraArchivoUbi archivoUbi = new EscrituraArchivoUbi(nomArchivoUbi);
@@ -170,6 +169,7 @@ public class Ejecutor {
         System.out.println("∆========================================∆");
         System.out.print("Ingrese el número de casa\n> ");
         numCasa = entrada.nextLine();
+        // Se llama para comprobar si la cedula ya se encuentra guardada
         lecturaUbi.establecerObjetoBuscado(numCasa);
         lecturaUbi.establecerBooleanBuscado();
         if (!lecturaUbi.obtenerBooleanBuscado()) {
@@ -212,6 +212,7 @@ public class Ejecutor {
         System.out.println("========================================");
         System.out.print("Ingrese el nombre de la ciudad\n> ");
         nomCiudad = entrada.nextLine();
+        // Se llama al metodo para comprobar si la ciudad ya se encuentra guardada
         lecturaCiu.establecerObjetoBuscado(nomCiudad);
         lecturaCiu.establecerBooleanBuscado();
         if (!lecturaCiu.obtenerBooleanBuscado()) {
@@ -251,6 +252,8 @@ public class Ejecutor {
         System.out.println("∆========================================∆");
         System.out.print("Ingrese el Id de la empresa\n> ");
         idEmpresa = entrada.nextLine();
+        // Se llama al metodo para comprobar si la Id de la empresa 
+        // ya se encuentra guardada
         lecturaCons.establecerObjetoBuscado(idEmpresa);
         lecturaCons.establecerBooleanBuscado();
         if (!lecturaCons.obtenerBooleanBuscado()) {
@@ -283,7 +286,6 @@ public class Ejecutor {
         double precioCuadrado;
         int numMetCuadrado, numCuartos;
         EscrituraArchivoCasa archivoCasa = new EscrituraArchivoCasa(nomArchivoCasa);
-
         System.out.println("∆========================================∆");
         System.out.println("øøøøøøø PROCESO PARA INGRESAR CASAS øøøøøø");
         System.out.println("∆========================================∆");
@@ -308,7 +310,7 @@ public class Ejecutor {
 
     public static void ingreseDepartamento() {
         Scanner entrada = new Scanner(System.in);
-        String nomArchivoDepa = "datos/departamento.txt";
+        String nomArchivoDepa = "datos/departamentos.txt";
         double precioCuadrado, valAliMens, precio;
         int numMetCuadrado;
         String nomEdi, ubiEdi;
@@ -344,22 +346,23 @@ public class Ejecutor {
 
     public static void mostrarDatos(int n) {
         String nomArchivoCons = "datos/constructoras.txt";
-        LecturaArchivoCons lecturaCons = new LecturaArchivoCons(nomArchivoCons);
-        lecturaCons.establecerListaConstructora();
         String nomArchivoCiu = "datos/ciudades.txt";
-        LecturaArchivoCiu lecturaCiu = new LecturaArchivoCiu(nomArchivoCiu);
-        lecturaCiu.establecerListaCiudad();
-        String nomArchivoUbi = "datos/ubicacion.txt";
-        LecturaArchivoUbi lecturaUbi = new LecturaArchivoUbi(nomArchivoUbi);
-        lecturaUbi.establecerListaUbicacion();
+        String nomArchivoUbi = "datos/ubicaciones.txt";
         String nomArchivoProp = "datos/propietarios.txt";
-        LecturaArchivoProp lecturaProp = new LecturaArchivoProp(nomArchivoProp);
-        lecturaProp.establecerListaPropietarios();
         String nomArchivoCasa = "datos/casas.txt";
+        String nomArchivoDepa = "datos/departamentos.txt";
+
+        LecturaArchivoCons lecturaCons = new LecturaArchivoCons(nomArchivoCons);
+        LecturaArchivoCiu lecturaCiu = new LecturaArchivoCiu(nomArchivoCiu);
+        LecturaArchivoUbi lecturaUbi = new LecturaArchivoUbi(nomArchivoUbi);
+        LecturaArchivoProp lecturaProp = new LecturaArchivoProp(nomArchivoProp);
         LecturaArchivoCasa lecturaCasa = new LecturaArchivoCasa(nomArchivoCasa);
-        lecturaCasa.establecerListaCasa();
-        String nomArchivoDepa = "datos/departamento.txt";
         LecturaArchivoDepa lecturaDepa = new LecturaArchivoDepa(nomArchivoDepa);
+        lecturaCons.establecerListaConstructora();
+        lecturaCiu.establecerListaCiudad();
+        lecturaUbi.establecerListaUbicacion();
+        lecturaProp.establecerListaPropietarios();
+        lecturaCasa.establecerListaCasa();
         lecturaDepa.establecerListaDepa();
         switch (n) {
             case 1:
@@ -426,20 +429,26 @@ public class Ejecutor {
                     System.out.println("========================");
                     System.out.println("No hay datos que mostrar");
                     System.out.println("========================");
-                } else if (!lecturaCasa.obtenerListaCasa().isEmpty() 
-                        && !lecturaDepa.obtenerListaDepa().isEmpty() 
-                        && !lecturaProp.obtenerListaPropietarios().isEmpty() 
-                        && !lecturaUbi.obtenerListaUbicacion().isEmpty() 
-                        && !lecturaUbi.obtenerListaUbicacion().isEmpty() 
-                        && !lecturaCiu.obtenerListaCiudad().isEmpty() 
-                        && !lecturaCons.obtenerListaConstructora().isEmpty()) {
+                }
+                if (!lecturaCasa.obtenerListaCasa().isEmpty()) {
                     System.out.println(lecturaCasa);
+                }
+                if (!lecturaDepa.obtenerListaDepa().isEmpty()) {
                     System.out.println(lecturaDepa);
+                }
+                if (!lecturaProp.obtenerListaPropietarios().isEmpty()) {
                     System.out.println(lecturaProp);
+                }
+                if (!lecturaUbi.obtenerListaUbicacion().isEmpty()) {
                     System.out.println(lecturaUbi);
+                }
+                if (!lecturaCiu.obtenerListaCiudad().isEmpty()) {
                     System.out.println(lecturaCiu);
+                }
+                if (!lecturaCons.obtenerListaConstructora().isEmpty()) {
                     System.out.println(lecturaCons);
                 }
+
                 break;
             default:
                 System.out.println("\033[0;1mOpcion Incorrecta");
