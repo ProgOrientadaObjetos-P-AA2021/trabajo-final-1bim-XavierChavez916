@@ -14,9 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -111,13 +109,16 @@ public class LecturaArchivoProp {
 
     @Override
     public String toString() {
-        String cadena = "Lista de Propietarios\n";
+        String cadena = "===================================================\n"
+                + "\tLista de Propietarios\n"
+                + "===================================================\n";
         for (int i = 0; i < obtenerListaPropietarios().size(); i++) {
             Propietario p = obtenerListaPropietarios().get(i);
-            cadena = String.format("%s-------------------------------------\n"
+            cadena = String.format("%s======================================="
+                    + "============\n"
                     + "Identificacion: %s\nNombre: %s\n"
                     + "Apellido: %s\n"
-                    + "-------------------------------------\n", cadena,
+                    + "===================================================\n", cadena,
                     p.obtenerIdentificacion(),
                     p.obtenerNombre(),
                     p.obtenerApellido());
@@ -126,18 +127,15 @@ public class LecturaArchivoProp {
         return cadena;
     }
 
-    // cierra el archivo y termina la aplicación
     public void cerrarArchivo() {
-        try // cierra el archivo y sale
-        {
+        try {
             if (entrada != null) {
                 entrada.close();
             }
             System.exit(0);
-        } // fin de try
-        catch (IOException ioException) {
+        } catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
             System.exit(1);
-        } // fin de catch
-    } // fin del método cerrarArchivo
+        }
+    }
 }

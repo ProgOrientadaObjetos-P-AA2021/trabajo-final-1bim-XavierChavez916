@@ -17,12 +17,10 @@ import java.util.ArrayList;
  * @author xavierchavez
  */
 public class LecturaArchivoDepa {
-    
 
     private ObjectInputStream entrada;
     private ArrayList<Departamento> depa;
     private String nombreArchivo;
-   
 
     public LecturaArchivoDepa(String n) {
         nombreArchivo = n;
@@ -67,7 +65,6 @@ public class LecturaArchivoDepa {
         }
 
     }
-    
 
     public ArrayList<Departamento> obtenerListaDepa() {
         return depa;
@@ -79,7 +76,9 @@ public class LecturaArchivoDepa {
 
     @Override
     public String toString() {
-        String cadena = "Lista de Departamentos\n";
+        String cadena = "===================================================\n"
+                + "\tLista de Departamentos\n"
+                + "===================================================\n";
         for (int i = 0; i < obtenerListaDepa().size(); i++) {
             Departamento p = obtenerListaDepa().get(i);
             cadena = String.format("%sPropietario:\n"
@@ -118,21 +117,15 @@ public class LecturaArchivoDepa {
         return cadena;
     }
 
-    // cierra el archivo y termina la aplicación
     public void cerrarArchivo() {
-        try // cierra el archivo y sale
-        {
+        try {
             if (entrada != null) {
                 entrada.close();
             }
             System.exit(0);
-        } // fin de try
-        catch (IOException ioException) {
+        } catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
             System.exit(1);
-        } // fin de catch
-    } // fin del método cerrarArchivo
+        }
+    }
 }
-
-    
-

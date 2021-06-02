@@ -105,12 +105,15 @@ public class LecturaArchivoCons {
 
     @Override
     public String toString() {
-        String cadena = "Lista de Constructoras\n";
+        String cadena = "===================================================\n"
+                + "\tLista de Constructoras\n"
+                + "===================================================\n";
         for (int i = 0; i < obtenerListaConstructora().size(); i++) {
             Constructora p = obtenerListaConstructora().get(i);
-            cadena = String.format("%s-------------------------------------\n"
+            cadena = String.format("%s======================================="
+                    + "============\n"
                     + "Id de la empresa: %s\nNombre Constructora: %s\n"
-                    + "-------------------------------------\n", cadena,
+                    + "===================================================\n", cadena,
                     p.obtenerIdEmpresa(),
                     p.obtenerNomConstructora());
 

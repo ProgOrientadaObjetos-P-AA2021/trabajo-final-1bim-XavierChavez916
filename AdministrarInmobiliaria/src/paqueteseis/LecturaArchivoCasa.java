@@ -76,10 +76,15 @@ public class LecturaArchivoCasa {
 
     @Override
     public String toString() {
-        String cadena = "\tLista de Casas\n";
+       
+        String cadena = "===================================================\n"
+                + "\t\tLista de Casas\n"
+                + "===================================================\n";
+        
         for (int i = 0; i < obtenerListaCasa().size(); i++) {
             Casa p = obtenerListaCasa().get(i);
-            cadena = String.format("%s\nCasa %s\n-------------------------------------\n"
+            cadena = String.format("%s\nCasa %s\n"
+                    + "===================================================\n"
                     + "Propietario: \n\tNombre del propietario: %s\n"
                     + "\tApellido del propietario: %s\n"
                     + "\tIdentificacion del propietario: %s\n"
@@ -87,15 +92,17 @@ public class LecturaArchivoCasa {
                     + "Número de metros cuadrados: %s\n"
                     + "Costo final: %s\n"
                     + "Ubicacion:\n\tNombre del barrio: %s\n\tReferencia: %s\n"
-                    + "Ciudad:\n\tNombre de la ciudad: 5s\n\tProvincia: %s\n"
+                    + "Ciudad:\n\tNombre de la ciudad: %s\n\tProvincia: %s\n"
                     + "Número de cuartos: %s\n"
                     + "Constructora:\n\tNombre Constructora: %s\n"
                     + "\tId de la empresa: %s\n"
-                    + "-------------------------------------\n", cadena, i,
+                    + "===================================================\n", 
+                    cadena, i + 1,
                     p.obtenerPropietario().obtenerNombre(),
                     p.obtenerPropietario().obtenerApellido(),
                     p.obtenerPropietario().obtenerIdentificacion(),
                     p.obtenerPrecMetCuadrado(),
+                    p.obtenerNumMetroCuadrado(),
                     p.obtenerCostFinal(),
                     p.obtenerUbicacion().obtenerNomBarrio(),
                     p.obtenerUbicacion().obtenerReferencia(),
@@ -104,24 +111,20 @@ public class LecturaArchivoCasa {
                     p.obtenerNumCuartos(),
                     p.obtenerConstructora().obtenerNomConstructora(),
                     p.obtenerConstructora().obtenerIdEmpresa());
-
         }
 
         return cadena;
     }
 
-    // cierra el archivo y termina la aplicación
     public void cerrarArchivo() {
-        try // cierra el archivo y sale
-        {
+        try {
             if (entrada != null) {
                 entrada.close();
             }
             System.exit(0);
-        } // fin de try
-        catch (IOException ioException) {
+        } catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
             System.exit(1);
-        } // fin de catch
-    } // fin del método cerrarArchivo
+        }
+    }
 }

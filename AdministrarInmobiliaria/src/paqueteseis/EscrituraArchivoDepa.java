@@ -45,8 +45,8 @@ public class EscrituraArchivoDepa {
         nombreArchivo = n;
     }
 
-    public void establecerRegistroDepa(Departamento p) {
-        registroDepa = p;
+    public void establecerRegistroDepa(Departamento d) {
+        registroDepa = d;
     }
 
     public void establecerSalida() {

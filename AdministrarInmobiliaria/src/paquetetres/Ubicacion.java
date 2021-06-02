@@ -26,16 +26,16 @@ public class Ubicacion implements Serializable{
         referencia = refe;
     }
     
-    public void establecerNumeroCasa(String c) {
-        numeroCasa = c;
+    public void establecerNumeroCasa(String n) {
+        numeroCasa = n;
     }
 
-    public void establecerNomBarrio(String c) {
-        nomBarrio = c;
+    public void establecerNomBarrio(String n) {
+        nomBarrio = n;
     }
 
-    public void establecerReferencia(String c) {
-        referencia = c;
+    public void establecerReferencia(String n) {
+        referencia = n;
     }
 
     public String obtenerNumeroCasa() {

@@ -67,6 +67,7 @@ public class LecturaArchivoUbi {
         }
 
     }
+
     public void establecerObjetoBuscado(String n) {
         establecerListaUbicacion();
         ArrayList<Ubicacion> listaUbicacion = obtenerListaUbicacion();
@@ -90,26 +91,31 @@ public class LecturaArchivoUbi {
         return ubicacion;
     }
 
-    public Ubicacion obtenerObjetoBuscado(){
+    public Ubicacion obtenerObjetoBuscado() {
         return objetoBuscado;
     }
 
-    public boolean obtenerBooleanBuscado(){
+    public boolean obtenerBooleanBuscado() {
         return booleanBuscado;
     }
+
     public String obtenerNombreArchivo() {
         return nombreArchivo;
     }
 
     @Override
     public String toString() {
-        String cadena = "Lista de Ubicaciones\n";
+        String cadena = "===================================================\n"
+                + "\tLista de Ubicaciones\n"
+                + "===================================================\n";
         for (int i = 0; i < obtenerListaUbicacion().size(); i++) {
             Ubicacion p = obtenerListaUbicacion().get(i);
-            cadena = String.format("%s-------------------------------------\n"
+            cadena = String.format("%s======================================"
+                    + "=============\n"
                     + "Número de casa: %s\nNombre del barrio: %s\n"
                     + "Referencia: %s\n"
-                    + "-------------------------------------\n", cadena,
+                    + "===================================================\n", 
+                    cadena,
                     p.obtenerNumeroCasa(),
                     p.obtenerNomBarrio(),
                     p.obtenerReferencia());
@@ -119,18 +125,15 @@ public class LecturaArchivoUbi {
         return cadena;
     }
 
-    // cierra el archivo y termina la aplicación
     public void cerrarArchivo() {
-        try // cierra el archivo y sale
-        {
+        try {
             if (entrada != null) {
                 entrada.close();
             }
             System.exit(0);
-        } // fin de try
-        catch (IOException ioException) {
+        } catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
             System.exit(1);
-        } // fin de catch
-    } // fin del método cerrarArchivo
+        }
+    }
 }

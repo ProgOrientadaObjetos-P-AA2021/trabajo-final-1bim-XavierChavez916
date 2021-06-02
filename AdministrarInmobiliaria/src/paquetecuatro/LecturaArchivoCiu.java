@@ -64,6 +64,7 @@ public class LecturaArchivoCiu {
                     break;
                 }
             }
+
         }
 
     }
@@ -105,12 +106,15 @@ public class LecturaArchivoCiu {
 
     @Override
     public String toString() {
-        String cadena = "Lista de Ciudades\n";
+        String cadena = "===================================================\n"
+                + "\tLista de Ciudades\n"
+                + "===================================================\n";
         for (int i = 0; i < obtenerListaCiudad().size(); i++) {
             Ciudad p = obtenerListaCiudad().get(i);
-            cadena = String.format("%s-------------------------------------\n"
+            cadena = String.format("%s======================================"
+                    + "=============\n"
                     + "Número de la ciudad: %s\nNombre de la provincia: %s\n"
-                    + "-------------------------------------\n", cadena,
+                    + "===================================================\n", cadena,
                     p.obtenerNomCiudad(),
                     p.obtenerNomProvincia());
 
@@ -119,18 +123,15 @@ public class LecturaArchivoCiu {
         return cadena;
     }
 
-    // cierra el archivo y termina la aplicación
     public void cerrarArchivo() {
-        try // cierra el archivo y sale
-        {
+        try {
             if (entrada != null) {
                 entrada.close();
             }
             System.exit(0);
-        } // fin de try
-        catch (IOException ioException) {
+        } catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
             System.exit(1);
-        } // fin de catch
-    } // fin del método cerrarArchivo
+        }
+    }
 }

@@ -21,8 +21,8 @@ public class EscrituraArchivoCasa {
     private Casa registroCasa;
     private ArrayList<Casa> listaCasa;
 
-    public EscrituraArchivoCasa(String nombreArc) {
-        nombreArchivo = nombreArc;
+    public EscrituraArchivoCasa(String nombreArch) {
+        nombreArchivo = nombreArch;
         establecerListaCasa();
 
         try {
@@ -35,18 +35,17 @@ public class EscrituraArchivoCasa {
                     establecerSalida();
                 }
             }
-        } // fin de try
-        catch (IOException ioException) {
+        } catch (IOException ioException) {
             System.err.println("Error al abrir el archivo.");
-        } // fin de catch
+        }
     }
 
     public void establecerNombreArchivo(String n) {
         nombreArchivo = n;
     }
 
-    public void establecerRegistroCasa(Casa p) {
-        registroCasa = p;
+    public void establecerRegistroCasa(Casa c) {
+        registroCasa = c;
     }
 
     public void establecerSalida() {
@@ -88,5 +87,3 @@ public class EscrituraArchivoCasa {
     }
 
 }
-   
-
